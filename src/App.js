@@ -34,5 +34,13 @@ function App() {
     </div>
   );
 }
+function change(e) {
+  setState({
+    ...state,
+    text: e.target.value,
+  });
+}
+
+function toPersonClick() {}
 
 export default App;
