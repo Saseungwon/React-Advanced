@@ -4,7 +4,7 @@ export default React.forwardRef(function MyInput(props, ref) {
   return (
     <div>
       <p>MyInput</p>
-      <input ref />
+      <input ref={ref} />
     </div>
   );
 });
