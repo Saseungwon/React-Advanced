@@ -20,15 +20,15 @@ function App() {
     ],
   });
 
-  const { text, persons } = this.state;
+  const toPersonClick = React.useCallback(() => {}, []);
+
+  const { text, persons } = state;
   return (
     <div>
-      <input type="text" value={text} onChange={this._change} />
+      <input type="text" value={text} onChange={change} />
       <ul>
         {persons.map((person) => {
-          return (
-            <Person {...person} key={person.id} onClick={this.toPersonClick} />
-          );
+          return <Person {...person} key={person.id} onClick={toPersonClick} />;
         })}
       </ul>
     </div>
