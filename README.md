@@ -44,3 +44,39 @@ function App() {
 #### React.forwardRef
 
 리액트에서 제공하는 API 중 forwardRef를 이용해서 하위 컴포넌트에 있는 레퍼런스를 상위 컴포넌트에서 이용하기
+
+input 값을 다른 곳으로 전달할 때 사용
+
+MyInput.jsx
+
+```jsx
+import React from "react";
+
+export default React.forwardRef(function MyInput(props, ref) {
+  return (
+    <div>
+      <p>MyInput</p>
+      <input ref={ref} />
+    </div>
+  );
+});
+```
+
+App.js
+
+```js
+function App() {
+  const myInputRef = useRef();
+
+  const click = () => {
+    console.log(myInputRef.current.value);
+  };
+
+  return (
+    <div>
+      <MyInput ref={myInputRef} />
+      <button onClick={click}>send</button>
+    </div>
+  );
+}
+```
